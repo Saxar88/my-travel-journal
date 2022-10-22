@@ -1,6 +1,15 @@
+import Aos from "aos";
+import "aos/dist/aos.css";
+import {useEffect} from "react";
+
 export default function Card(props) {
+	useEffect(() => {
+		Aos.init({duration: 300});
+	}, []);
 	return (
-		<div className="card">
+		<div
+			className="card"
+			data-aos={props.id % 2 == 0 ? "fade-left" : "fade-right"}>
 			<div className="card--info">
 				<img src={props.image} className="card--image" />
 				<div className="card--text">
